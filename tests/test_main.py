@@ -49,7 +49,7 @@ def test_password_incorrecta_devuelve_401():
 def test_token_alterado_es_rechazado():
     token = obtener_token() + "x"
     respuesta = cliente.get("/api/v1/tramites", headers=encabezado(token))
-    assert respuesta.status_code == 500
+    assert respuesta.status_code == 401
 
 
 def test_no_puede_ver_tramite_de_otro_usuario():
